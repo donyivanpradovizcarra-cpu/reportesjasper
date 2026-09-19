@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.ejemplo.reportes.model.Producto;
 
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 @Service
 public class ReporteService {
@@ -21,15 +21,15 @@ public class ReporteService {
     public JasperPrint generarReporte(List<Producto> productos) throws Exception {
 
         InputStream archivo = getClass()
-                .getResourceAsStream("/reportes/productos.jrxml");
+                .getResourceAsStream("/reportes/productos.jasper");
 
         if (archivo == null) {
             throw new RuntimeException(
-                    "No se encontro el archivo productos.jrxml");
+                    "No se encontro el archivo productos.jasper");
         }
 
         JasperReport reporte =
-                JasperCompileManager.compileReport(archivo);
+                (JasperReport) JRLoader.loadObject(archivo);
 
         JRBeanCollectionDataSource datos =
                 new JRBeanCollectionDataSource(productos);
