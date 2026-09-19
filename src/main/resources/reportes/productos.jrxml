@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jasperReport
+    name="productos"
+    language="java"
+    pageWidth="595"
+    pageHeight="842"
+    columnWidth="535"
+    leftMargin="30"
+    rightMargin="30"
+    topMargin="30"
+    bottomMargin="30">
+
+    <parameter name="TITULO" class="java.lang.String"/>
+
+    <field name="id" class="java.lang.Integer"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="categoria" class="java.lang.String"/>
+    <field name="precio" class="java.lang.Double"/>
+    <field name="stock" class="java.lang.Integer"/>
+
+    <!-- TITULO -->
+    <title height="75">
+
+        <element kind="textField"
+                 x="0"
+                 y="5"
+                 width="535"
+                 height="30"
+                 fontSize="18"
+                 bold="true"
+                 hTextAlign="Center">
+
+            <expression><![CDATA[$P{TITULO}]]></expression>
+        </element>
+
+        <element kind="staticText"
+                 x="0"
+                 y="42"
+                 width="535"
+                 height="20"
+                 fontSize="11"
+                 hTextAlign="Center">
+
+            <text><![CDATA[Sistema de Reportes - JasperReports]]></text>
+        </element>
+
+    </title>
+
+
+    <!-- ENCABEZADO -->
+    <columnHeader height="32">
+
+        <element kind="staticText"
+                 x="0"
+                 y="0"
+                 width="50"
+                 height="25"
+                 bold="true"
+                 hTextAlign="Center"
+                 vTextAlign="Middle">
+            <text><![CDATA[ID]]></text>
+        </element>
+
+        <element kind="staticText"
+                 x="50"
+                 y="0"
+                 width="170"
+                 height="25"
+                 bold="true"
+                 vTextAlign="Middle">
+            <text><![CDATA[PRODUCTO]]></text>
+        </element>
+
+        <element kind="staticText"
+                 x="220"
+                 y="0"
+                 width="120"
+                 height="25"
+                 bold="true"
+                 vTextAlign="Middle">
+            <text><![CDATA[CATEGORIA]]></text>
+        </element>
+
+        <element kind="staticText"
+                 x="340"
+                 y="0"
+                 width="105"
+                 height="25"
+                 bold="true"
+                 hTextAlign="Center"
+                 vTextAlign="Middle">
+            <text><![CDATA[PRECIO]]></text>
+        </element>
+
+        <element kind="staticText"
+                 x="445"
+                 y="0"
+                 width="90"
+                 height="25"
+                 bold="true"
+                 hTextAlign="Center"
+                 vTextAlign="Middle">
+            <text><![CDATA[STOCK]]></text>
+        </element>
+
+    </columnHeader>
+
+
+    <!-- DATOS -->
+    <detail>
+        <band height="27">
+
+            <element kind="textField"
+                     x="0"
+                     y="0"
+                     width="50"
+                     height="22"
+                     hTextAlign="Center"
+                     vTextAlign="Middle">
+
+                <expression><![CDATA[$F{id}]]></expression>
+            </element>
+
+            <element kind="textField"
+                     x="50"
+                     y="0"
+                     width="170"
+                     height="22"
+                     vTextAlign="Middle">
+
+                <expression><![CDATA[$F{nombre}]]></expression>
+            </element>
+
+            <element kind="textField"
+                     x="220"
+                     y="0"
+                     width="120"
+                     height="22"
+                     vTextAlign="Middle">
+
+                <expression><![CDATA[$F{categoria}]]></expression>
+            </element>
+
+            <element kind="textField"
+                     x="340"
+                     y="0"
+                     width="105"
+                     height="22"
+                     pattern="'S/ ' #,##0.00"
+                     hTextAlign="Center"
+                     vTextAlign="Middle">
+
+                <expression><![CDATA[$F{precio}]]></expression>
+            </element>
+
+            <element kind="textField"
+                     x="445"
+                     y="0"
+                     width="90"
+                     height="22"
+                     hTextAlign="Center"
+                     vTextAlign="Middle">
+
+                <expression><![CDATA[$F{stock}]]></expression>
+            </element>
+
+        </band>
+    </detail>
+
+
+    <!-- PIE DE PAGINA -->
+    <pageFooter height="30">
+
+        <element kind="textField"
+                 x="385"
+                 y="5"
+                 width="150"
+                 height="20"
+                 hTextAlign="Right">
+
+            <expression>
+                <![CDATA["Pagina " + $V{PAGE_NUMBER}]]>
+            </expression>
+
+        </element>
+
+    </pageFooter>
+
+</jasperReport>

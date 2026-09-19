@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Reportes Jasper</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: #1e3a5f;
+            color: white;
+            padding: 25px 40px;
+        }
+
+        header h1 {
+            font-size: 27px;
+        }
+
+        header p {
+            margin-top: 7px;
+            color: #dbeafe;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: 50px auto;
+            padding: 0 25px;
+        }
+
+        .titulo {
+            margin-bottom: 25px;
+        }
+
+        .titulo h2 {
+            font-size: 25px;
+            margin-bottom: 7px;
+        }
+
+        .titulo p {
+            color: #64748b;
+        }
+
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icono {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.5;
+            min-height: 70px;
+        }
+
+        .boton {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 13px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .pdf {
+            background: #dc2626;
+        }
+
+        .word {
+            background: #2563eb;
+        }
+
+        .excel {
+            background: #16a34a;
+        }
+
+        .info {
+            background: white;
+            margin-top: 35px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .info h3 {
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #64748b;
+        }
+
+        @media (max-width: 800px) {
+            .contenedor {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sistema de Reportes Jasper</h1>
+    <p>Generación de reportes con Spring Boot y JasperReports</p>
+</header>
+
+<main>
+
+    <div class="titulo">
+        <h2>Reporte de Productos</h2>
+        <p>Seleccione el formato en el que desea generar el reporte.</p>
+    </div>
+
+    <div class="contenedor">
+
+        <div class="card">
+            <div class="icono">📄</div>
+
+            <h3>Reporte PDF</h3>
+
+            <p>
+                Genera el reporte general de productos
+                en formato PDF.
+            </p>
+
+            <a href="/reportes/pdf"
+               class="boton pdf">
+                Descargar PDF
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icono">📝</div>
+
+            <h3>Reporte Word</h3>
+
+            <p>
+                Genera un documento Word con la
+                información de los productos.
+            </p>
+
+            <a href="/reportes/word"
+               class="boton word">
+                Descargar Word
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icono">📊</div>
+
+            <h3>Reporte Excel</h3>
+
+            <p>
+                Exporta la información de productos
+                a una hoja de cálculo.
+            </p>
+
+            <a href="/reportes/excel"
+               class="boton excel">
+                Descargar Excel
+            </a>
+        </div>
+
+    </div>
+
+    <div class="info">
+        <h3>Información</h3>
+
+        <p>
+            Este sistema utiliza Spring Boot y JasperReports
+            para generar reportes de productos en diferentes
+            formatos desde una aplicación web.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    Sistema de Reportes Jasper - 2026
+</footer>
+
+</body>
+</html>
